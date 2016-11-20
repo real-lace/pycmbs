@@ -12,7 +12,7 @@ Basic plotting in pyCMBS
 
 from pycmbs.mapping import map_plot
 import matplotlib.pyplot as plt
-from pycmbs.examples import download
+from pycmbs.utils import download
 
 air = download.get_sample_file(name='air')
 air.label = 'air temperature'

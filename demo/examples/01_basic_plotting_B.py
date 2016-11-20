@@ -12,7 +12,7 @@ Basic plotting in pyCMBS
 from pycmbs.mapping import map_plot
 import matplotlib.pyplot as plt
 import numpy as np
-from pycmbs.examples import download
+from pycmbs.utils import download
 
 # Read some data ...
 air = download.get_sample_file(name='air')

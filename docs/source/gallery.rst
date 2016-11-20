@@ -10,7 +10,7 @@ Read some sample data and just plot it::
 
     from pycmbs.mapping import map_plot
     import matplotlib.pyplot as plt
-    from pycmbs.examples import download
+    from pycmbs.utils import download
     import numpy as np
 
     # Read some sample data ...

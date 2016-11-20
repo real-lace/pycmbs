@@ -4,7 +4,7 @@ This file is part of pyCMBS.
 For COPYING and LICENSE details, please refer to the LICENSE file
 """
 from pycmbs.data import Data
-from pycmbs.examples import download
+from pycmbs.utils import download
 import matplotlib.pyplot as plt
 
 plt.close('all')

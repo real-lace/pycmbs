@@ -1,0 +1,53 @@
+package:
+  name: pycmbs
+  version: "master_20160531"
+
+source:
+  git_url: https://github.com/pygeo/pycmbs
+
+requirements:
+  build:
+    - python
+    - setuptools ==23.0.0
+    - numpy
+    - scipy
+    - netcdf4
+    - matplotlib
+    - cartopy
+    - cython
+    - freetype
+    - libpng
+    - proj4
+    - shapely
+    - pyshp
+    - cdo >=1.7.*
+    - python-cdo
+    - pytz
+    - six
+    - python-dateutil
+    - cycler
+    - pyparsing
+    - certifi
+  run:
+    - python
+    - numpy
+    - cartopy
+    - matplotlib
+    - basemap
+    - freetype
+    - libpng
+    - proj4
+
+test:
+  imports:
+    - pycmbs
+  requires:
+    - numpy
+    - cartopy
+    - matplotlib
+    - basemap
+
+about:
+  home: https://github.com/pygeo/pycmbs
+  license: MIT
+  license_file: LICENSE

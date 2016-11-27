@@ -1,53 +1,57 @@
 package:
   name: pycmbs
-  version: "master_20160531"
+  version: {{ environ.get('GIT_DESCRIBE_TAG', '')+'_'+environ.get('GIT_BUILD_STR', '') }}
 
 source:
-  git_url: https://github.com/pygeo/pycmbs
+  git_url: https://github.com/real-lace/pycmbs
+
+build:
+  entry_points:
+    - pycmbs_benchmarking = pycmbs_benchmarking:main
+  skip: true  # [win]
 
 requirements:
   build:
     - python
+    - toolchain
     - setuptools ==23.0.0
-    - numpy
-    - scipy
-    - netcdf4
-    - matplotlib
-    - cartopy
     - cython
-    - freetype
-    - libpng
-    - proj4
-    - shapely
-    - pyshp
+    - numpy x.x
+    - netcdf4
+    - cartopy
+    - gdal
     - cdo >=1.7.*
     - python-cdo
-    - pytz
-    - six
-    - python-dateutil
-    - cycler
-    - pyparsing
-    - certifi
   run:
     - python
-    - numpy
+    - numpy x.x
+    - netcdf4
     - cartopy
-    - matplotlib
-    - basemap
-    - freetype
-    - libpng
-    - proj4
+    - gdal
+    - cdo >=1.7.*
+    - python-cdo
 
 test:
+  commands:
+    - python -c "from pycmbs import *; print('Welcome to pyCMBS')"
+    - python -c "from cdo import *; cdo=Cdo(); print 'If you see this, everything went right ... have fun with pyCMBS and CDOs'"
   imports:
     - pycmbs
+    - geoval
   requires:
-    - numpy
+    - numpy x.x
     - cartopy
-    - matplotlib
     - basemap
-
+    - netcdf4
+    - cdo >=1.7.*
+    - python-cdo
+ 
 about:
   home: https://github.com/pygeo/pycmbs
   license: MIT
   license_file: LICENSE
+  summary: python Climate Model Benchmarking Suite
+
+extra:
+  recipe-maintainers:
+    - real-lace
